@@ -36,15 +36,6 @@ public class FlutterBraintreeDropIn  implements FlutterPlugin, ActivityAware, Me
   private Activity activity;
   private Result activeResult;
 
-
-  public static void registerWith(Registrar registrar) {
-    final MethodChannel channel = new MethodChannel(registrar.messenger(), "flutter_braintree.drop_in");
-    FlutterBraintreeDropIn plugin = new FlutterBraintreeDropIn();
-    plugin.activity = registrar.activity();
-    registrar.addActivityResultListener(plugin);
-    channel.setMethodCallHandler(plugin);
-  }
-
   @Override
   public void onAttachedToEngine(FlutterPluginBinding binding) {
     final MethodChannel channel = new MethodChannel(binding.getBinaryMessenger(), "flutter_braintree.drop_in");
